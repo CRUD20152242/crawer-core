@@ -9,13 +9,75 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>crawer-export</module>
+        <module>spider-export</module>
         <module>spider-platform-backStage</module>
         <module>spider-platform-web</module>
+        <module>spider-dao</module>
+        <module>spider-domain</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <!--c3p0连接池-->
+            <dependency>
+                <groupId>c3p0</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>0.9.1.2</version>
+            </dependency>
+            <!--mybatis 相关包-->
+            <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+                <version>${spring.ver}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>3.4.1</version>
+            </dependency>
+            <!--mysql数据库驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.38</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>1.3.0</version>
+            </dependency>
+            <!--引入mybatis结束-->
+            <!--引入provider-->
+            <dependency>
+                <groupId>com.ccut.xyd</groupId>
+                <artifactId>analyse-export</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+        <!--引入dubbo-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>2.5.3</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--引入zookeeper相关jar包  用来向zookeeper注册服务 -->
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>3.4.10</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.sgroschupf</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>0.1</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
