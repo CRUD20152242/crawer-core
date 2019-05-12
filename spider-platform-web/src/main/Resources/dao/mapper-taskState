@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.ccut.xyd.crawl.TaskDao">
+
+    <!--添加任务-->
+    <insert id="addTaskState" parameterType="com.ccut.xyd.Po.TaskStatePo">
+        insert into taskstate(
+          taskId,
+          url,
+          deep,
+          state,
+          taskName,
+          createTime
+        ) values (#{taskId},#{url},#{deep},#{state},#{taskName},#{createTime});
+    </insert>
+
+    <!--查询任务状态-->
+    <select id="searchTaskState" parameterType="String" resultType="com.ccut.xyd.Po.TaskStatePo">
+        select
+          id,
+          taskId,
+          url,
+          deep,
+          state,
+          taskName,
+          createTime
+          from  taskstate
+          where taskName=#{taskName};
+    </select>
+
+    <!--修改任务状态-->
+    <update id="updateState" parameterType="com.ccut.xyd.Po.TaskStatePo">
+        update taskstate set state = #{state} where taskId = #{taskId};
+      </update>
+</mapper>
