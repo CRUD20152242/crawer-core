@@ -67,6 +67,11 @@
                 <span class="input-group-addon">目标网址：</span>
                 <input type="text" class="form-control" placeholder="请输入目标网址" id="seed">
             </div>
+            <h3>请输入任务名称:</h3>
+            <div class="input-group">
+                <span class="input-group-addon">任务名称：</span>
+                <input type="text" class="form-control" placeholder="请输入任务名称(建议使用目标网站名字)" id="taskName">
+            </div>
             <h3>文本抽取规则:</h3>
             <div class="row">
                 <div class="col-lg-6">
@@ -83,7 +88,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="input-group">
-                        <span class="input-group-addon ">取规则3</span>
+                        <span class="input-group-addon ">规则3</span>
                         <input type="text" class="form-control" aria-label="..." id="rule3" placeholder="文本抽取规则3（选填）">
                     </div>
                     <br class="valueGroup1"/>
@@ -94,7 +99,9 @@
                     <br class="valueGroup2"/>
 
                 </div>
+
             </div>
+            <button class="btn  btn-danger">添加规则</button>
             <h3>链接过滤规则:</h3>
             <div class="row">
                 <div class="col-lg-6">
@@ -125,7 +132,7 @@
                     </div>
                 </div>
             </div>
-            <h3>基本配置:</h3>
+            <h3>高级配置:</h3>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="input-group" id="crawlConfig1">
@@ -141,8 +148,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="input-group" id="crawlConfig3">
-                        <span class="input-group-addon value1">目录名：</span>
-                        <input type="text" class="form-control" aria-label="..." id="ml" placeholder="默认为种子路径" >
+                        <span class="input-group-addon value1">自动过滤js/css链接：</span>
+                        <input type="text" class="form-control" aria-label="..." id="noJsUrl" placeholder="默认启动（输入0禁止自动过滤js链接）" >
                     </div>
                     <br class="valueGroup1"/>
                     <div class="input-group" id="crawlConfig4">

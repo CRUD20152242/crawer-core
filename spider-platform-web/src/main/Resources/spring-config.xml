@@ -23,12 +23,14 @@
         <property name="locations">
             <list>
                 <value>classpath:log4j.properties</value>
+                <value>classpath:db.properties</value>
             </list>
         </property>
     </bean>
 
     <!--<import resource="classpath:spring/spring-*.xml" />-->
     <!--<import resource="classpath:spring/quartz/spring-*.xml" />-->
-    <!--<import resource="classpath:spring/mq/spring-*.xml" />-->
+    <import resource="classpath:spring/spring-dataSource" />
+    <import resource="classpath:spring/spring-dubbo-consumer"/>
     <import resource="classpath:spring/spring-ThreadPool"/>
 </beans>

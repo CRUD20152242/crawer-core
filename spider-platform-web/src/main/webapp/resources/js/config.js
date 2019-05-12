@@ -17,8 +17,12 @@ function startCrawl() {
     }else {
         turbo=true
     }
-    var fileName = $("#ml").val();
+    var fileName = $("#taskName").val();
     var threads = $("#ThreadsNum").val();
+    var  rule1 =  $("#rule1").val();
+    var  rule2 =  $("#rule2").val();
+    var  rule3 =  $("#rule3").val();
+    var  rule4 =  $("#rule4").val();
     $.ajax({
         url : "http://localhost:8080/spider/startCrawl",
         type : "get",
@@ -31,7 +35,11 @@ function startCrawl() {
             "deep":deep,
             "turbo":turbo,
             "fileName":fileName,
-            "threads":threads
+            "threads":threads,
+            "rule1":rule1,
+            "rule2":rule2,
+            "rule3":rule3,
+            "rule4":rule4,
         },
         dataType:"json",
         success : function (f) {

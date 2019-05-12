@@ -3,11 +3,13 @@ package com.ccut.xyd.crawl;
 import com.ccut.xyd.FetchPages;
 import com.ccut.xyd.FetchPagesUseJs;
 import com.ccut.xyd.Model.Page;
+import com.ccut.xyd.ParsePage;
 import com.ccut.xyd.VO.InitVo;
 import com.ccut.xyd.crawer.StartCrawl;
 import com.mchange.lang.IntegerUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -17,16 +19,6 @@ import java.util.HashMap;
 @Component
 public class StartCrawlImpl implements StartCrawl {
 
-    private Page page;
-
-//    获取源码
-    public Page getPage() {
-        return this.page;
-    }
-
-    public void setPage(Page page){
-        this.page = page;
-    }
     public String getConnection(String url) {
         return null;
     }
@@ -39,7 +31,7 @@ public class StartCrawlImpl implements StartCrawl {
      * 启动爬虫
      * @param initVo
      */
-    public void startCrawl(InitVo initVo) {
+    public void startCrawl(InitVo initVo,ParsePage parsePage) {
 //        是否启动抓取JS的数据  暂时禁用因为有bug
         if(initVo.isTurbo()){
             FetchPagesUseJs fetchPagesUseJs = new FetchPagesUseJs();
@@ -68,7 +60,7 @@ public class StartCrawlImpl implements StartCrawl {
             initVo.setDeep("1");
         }
         try {
-        FetchPages fetchPages = new FetchPages(initVo.getFileName(),initVo.isAutoParse());
+        FetchPages fetchPages = new FetchPages(initVo.getFileName(),initVo.isAutoParse(),initVo,parsePage);
         fetchPages.addSeed(initVo.getSeed());
         if (StringUtils.isNotEmpty(initVo.getRegex1())){
             log.info("准备添加过滤规则1：{}",initVo.getRegex1());

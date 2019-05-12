@@ -4,14 +4,12 @@ import jdk.nashorn.internal.objects.annotations.ScriptClass;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Setter
 @Getter
 @ToString
-@Component
-@Scope("prototype")
 public class InitVo {
     /**
      * 种子
@@ -56,4 +54,6 @@ public class InitVo {
     private String rule8;
     private String rule9;
     private String rule10;
+
+    private List<String> rules;
 }

@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>crawer-export</artifactId>
+    <artifactId>spider-export</artifactId>
 
-    <name>crawer-export</name>
+    <name>spider-export</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -22,6 +22,15 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.ccut.xyd</groupId>
+            <artifactId>spider-domain</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ccut.xyd</groupId>
+            <artifactId>analyse-export</artifactId>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

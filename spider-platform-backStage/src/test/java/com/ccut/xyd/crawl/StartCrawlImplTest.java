@@ -17,8 +17,8 @@ public class StartCrawlImplTest {
     @Before
     public void init(){
         initVo.setSeed("https://www.csdn.net/");
-        initVo.setDeep("1");
-        initVo.setThreads("1");
+        initVo.setDeep("2");
+        initVo.setThreads("10");
         initVo.setFileName("test1");
     }
 
@@ -30,8 +30,8 @@ public class StartCrawlImplTest {
     }
     @Test
     public void startCrawl() {
-        startCrawl.startCrawl(initVo);
-        System.out.println("init = "+initVo.getDeep());
+//        startCrawl.startCrawl();
+//        System.out.println("init = "+initVo.getDeep());
     }
 
 //测试加载js

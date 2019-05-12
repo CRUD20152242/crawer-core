@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
@@ -16,10 +15,19 @@
     <url>http://www.example.com</url>
 
     <dependencies>
+        <dependency>
+            <groupId>com.ccut.xyd</groupId>
+            <artifactId>spider-dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ccut.xyd</groupId>
+            <artifactId>analyse-export</artifactId>
+        </dependency>
         <!--<dependency>-->
             <!--<groupId>com.ccut.xyd</groupId>-->
-            <!--<artifactId>spider-platform-web</artifactId>-->
-            <!--<version>1.0-SNAPSHOT</version>-->
+            <!--<artifactId>analyse-export</artifactId>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -63,7 +71,7 @@
         </dependency>
 
         <dependency>
-            <artifactId>crawer-export</artifactId>
+            <artifactId>spider-export</artifactId>
             <groupId>com.ccut.xyd</groupId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
