@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.ccut.xyd.crawl.RuleDao">
+
+    <!--增加规则-->
+    <insert id="addRule" parameterType="com.ccut.xyd.Po.TaskRulePo">
+        insert into taskrule(
+            id,
+            taskId,
+            rule1,
+            rule2,
+            rule3,
+            rule4,
+            rule5,
+            rule6,
+            rule7,
+            rule8,
+            rule9,
+            rule10,
+            regex1,
+            regex2,
+            regex3,
+            regex4
+        ) values (#{id},#{taskId},#{rule1},#{rule2},#{rule3},#{rule4},#{rule5},#{rule6},
+        #{rule7},#{rule8},#{rule9},#{rule10},#{regex1},#{regex2},#{regex3},#{regex4})
+    </insert>
+    <!--查询规则-->
+    <select id="searchRule" parameterType="com.ccut.xyd.Po.TaskRulePo" resultType="com.ccut.xyd.Po.TaskRulePo">
+        select
+            id,
+            taskId,
+            rule1,
+            rule2,
+            rule3,
+            rule4,
+            rule5,
+            rule6,
+            rule7,
+            rule8,
+            rule9,
+            rule10,
+            regex1,
+            regex2,
+            regex3,
+            regex4
+            from taskrule
+             where taskId = #{taskId}
+    </select>
+</mapper>

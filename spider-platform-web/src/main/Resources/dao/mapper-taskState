@@ -11,8 +11,9 @@
           deep,
           state,
           taskName,
-          createTime
-        ) values (#{taskId},#{url},#{deep},#{state},#{taskName},#{createTime});
+          createTime,
+          urls
+        ) values (#{taskId},#{url},#{deep},#{state},#{taskName},#{createTime},#{urls});
     </insert>
 
     <!--查询任务状态-->
@@ -24,13 +25,18 @@
           deep,
           state,
           taskName,
-          createTime
+          createTime,
+          urls
           from  taskstate
           where taskName=#{taskName};
+    </select>
+    <!--查询id是否存在-->
+    <select id="checkTaskId" parameterType="java.lang.Integer" resultType="com.ccut.xyd.Po.TaskStatePo">
+        select id,taskId from taskstate where taskId=#{taskId};
     </select>
 
     <!--修改任务状态-->
     <update id="updateState" parameterType="com.ccut.xyd.Po.TaskStatePo">
-        update taskstate set state = #{state} where taskId = #{taskId};
+        update taskstate set state = #{state},urls=#{urls} where taskId = #{taskId};
       </update>
 </mapper>

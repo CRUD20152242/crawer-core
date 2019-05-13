@@ -21,17 +21,26 @@ public class TaskStateImpl extends Transaction implements TaskStateService {
     private  TaskDao taskDao;
     private  TransactionStatus transactionStatus;
 
-    public void addTaskState(TaskStatePo po) {
+    /**
+     * 添加任务 先查taskId是否重复
+    * @param po
+     */
+    public boolean addTaskState(TaskStatePo po) {
         log.info("正在添加任务状态 taskId is {}",po.getTaskId());
         transactionStatus = init();
         try {
+            if (null!=taskDao.checkTaskId(po.getTaskId())){
+                rollBack(transactionStatus);
+                return false;
+            }
             taskDao.addTaskState(po);
             commit(transactionStatus);
         } catch (Exception e) {
             e.printStackTrace();
             rollBack(transactionStatus);
+            return false;
         }
-
+        return true;
     }
 
     public List<TaskStatePo> searchTaskState(String taskName) {

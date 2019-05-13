@@ -55,5 +55,5 @@ public class InitVo {
     private String rule9;
     private String rule10;
 
-    private List<String> rules;
+    private int urls;
 }

@@ -16,5 +16,6 @@
     <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
     <!-- 引用服务配置 -->
     <dubbo:reference id="parsePage" interface="com.ccut.xyd.ParsePage"  />
+    <dubbo:reference interface="com.ccut.xyd.DBRpc" id="dbRpc"/>
 
 </beans>

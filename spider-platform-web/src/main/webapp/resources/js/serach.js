@@ -1,11 +1,90 @@
 $(function () {
     $("[data-toggle='popover']").popover()
 })
+//提交查询请求
+$('#searchId').click(showTasks);
+//查询任务明细
+function submit() {
+
+    var taskName = $("#taskName").val();
+    $.ajax({
+        url : "http://localhost:8080/crawl/searchTask",
+        type : "post",
+        data : {
+            "taskName":taskName
+        },
+        dataType:"json",
+        success : showTasks,
+        error:function (f) {
+            alert("未知错误 联系管理员 qq 2314449060"+f.state())
+        }
+    });
+}
+//任务详情页  复杂任务的展示
+function showTasks(f) {
+
+
+    var results="           ";
+        results =
+            "<br/>"+
+            "<div class='panel panel-default'>" +
+                    "<div class='panel-heading  panel-primary'>" +
+                        "<h3 class='panel-title'>任务名："+1+"任务id:"+1+" 创建时间："+1+"</h3>" +
+                    "</div>" +
+                    "<div class='panel-body'>" +
+                     "<table class=\"table input-group\">\n" +
+            "                    <!--<caption>基本的表格布局</caption>-->\n" +
+            "                    <thead>\n" +
+            "                    <tr>\n" +
+            "                        <th>深度</th>\n" +
+            "                        <th>状态</th>\n" +
+            "                        <th>以解析链接数</th>\n" +
+            "                        <th>规则集（逗号分割）</th>\n" +
+            "                        <th>过滤集（逗号分）</th>\n" +
+            "                        <th>下载所有文件</th>\n" +
+            "                        <th>"+
+            "                           <div class=\"btn-group\">" +
+            "                               <button type=\"button\" class=\"btn btn-default \" onclick=\"addOne()\" >下载全部</button>" +
+            "                           </div>" +
+            "                        </th>"+
+            "                     </tr>\n" +
+            "                    </thead>\n" +
+            "<tbody><tr><td>2</td><td>3</td><td>1</td><td>5</td><td>6</td><td>7</td><td>8</td></tr></tbody>"+
+            "                </table>"+
+                    "</div>"+
+            "<table class=\"table input-group\">\n" +
+            "                    <!--<caption>基本的表格布局</caption>-->\n" +
+            "                    <thead>\n" +
+            "                    <tr>\n" +
+            "                        <th>深度</th>\n" +
+            "                        <th>状态</th>\n" +
+            "                        <th>以解析链接数</th>\n" +
+            "                        <th>规则集（逗号分割）</th>\n" +
+            "                        <th>过滤集（逗号分）</th>\n" +
+            "                        <th>下载所有文件</th>\n" +
+            "                        <th>"+
+            "                           <div class=\"btn-group\">" +
+            "                               <button type=\"button\" class=\"btn btn-default \" onclick=\"addOne()\" >下载全部</button>" +
+            "                           </div>" +
+            "                        </th>"+
+            "                     </tr>\n" +
+            "                    </thead>\n" +
+            "<tbody><tr><td>2</td><td>3</td><td>1</td><td>5</td><td>6</td><td>7</td><td>8</td></tr></tbody>"+
+            "                </table>"+
+            "<div class='panel-footer'>" +
+                    "url:" +1+
+                "</div>"
+            "</div>"
+
+    $(".showTask").html(results)
+}
+
+
 var keys = "";
 var flags = "xq"
 var firstSize = 0;
 //提交查询请求
-$('#searchId').click(submit);
+// $('#searchId').click(submit);
 //提交修改删除增加请求
 $('#submitAll').click(submitAll);
 

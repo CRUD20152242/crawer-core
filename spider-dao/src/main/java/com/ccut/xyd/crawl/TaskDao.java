@@ -8,4 +8,6 @@ public interface TaskDao {
     void addTaskState(TaskStatePo po);
     List<TaskStatePo> searchTaskState(String taskName);
     void updateState(TaskStatePo po);
+    TaskStatePo checkTaskId(Integer taskId);
+
 }

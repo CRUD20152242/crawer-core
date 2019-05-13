@@ -6,7 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="crawer-export" />
+        <module name="spider-dao" />
+        <module name="spider-domain" />
+        <module name="spider-export" />
         <module name="spider-platform-backStage" />
         <module name="spider-platform-web" />
       </profile>

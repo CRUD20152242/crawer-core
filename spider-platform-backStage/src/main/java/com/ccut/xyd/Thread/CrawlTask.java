@@ -26,11 +26,14 @@ public class CrawlTask implements Runnable {
         this.taskStateService = taskStateService;
     }
     public void run() {
+        int urls = 0;
+        initVo.setUrls(urls);
         log.info("任务开始执行---任务名:{}",initVo.getSeed());
         startCrawl.startCrawl(initVo,parsePage);
         log.info("任务{} 执行完毕 ",initVo.getFileName());
         TaskStatePo task = new TaskStatePo();
         task.setState(1);
+        task.setUrls(initVo.getUrls());
         task.setTaskId(initVo.toString().hashCode());
         taskStateService.updateState(task);
         ThreadExecutor.sum.getAndDecrement();

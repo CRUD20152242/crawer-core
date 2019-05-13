@@ -22,6 +22,8 @@ public class FetchPages extends BreadthCrawler {
         this.parsePage = parsePage;
     }
     public void visit(Page page, CrawlDatums crawlDatums) {
+        int sum = initVo.getUrls();
+        initVo.setUrls(sum++);
         log.info("--------准备封装页面解析任务，异步交给解析模块进行处理 任务名字：{}  -------------------------",page.url());
         List<String> links  = parsePage.getUrlAndParsePage(page.html(), ParameterTransferUtil.buildTaskModel(this.initVo));
         log.info("---------提交page成功！！！！-------------------------------------------------------------------");

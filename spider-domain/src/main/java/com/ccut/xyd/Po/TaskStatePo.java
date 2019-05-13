@@ -40,4 +40,9 @@ public class TaskStatePo implements Serializable {
      * 插入时间
      */
     private String createTime;
+
+    /**
+     * 以爬取的线程数
+     */
+    private int urls;
 }

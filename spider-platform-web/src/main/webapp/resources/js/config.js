@@ -24,7 +24,7 @@ function startCrawl() {
     var  rule3 =  $("#rule3").val();
     var  rule4 =  $("#rule4").val();
     $.ajax({
-        url : "http://localhost:8080/spider/startCrawl",
+        url : "http://localhost:80/spider/startCrawl",
         type : "get",
         data : {
             "seed":seed,
